@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // 👁️ icons
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // toggle state
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -35,15 +37,23 @@ const Login = () => {
             />
           </div>
 
-          <div>
+          {/* Password Input with Eye Toggle */}
+          <div className="relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full p-3 bg-neutral-950 border border-neutral-800 rounded-md text-sm placeholder-gray-500 text-gray-100 focus:outline-none focus:border-orange-500 transition"
+              className="w-full p-3 bg-neutral-950 border border-neutral-800 rounded-md text-sm placeholder-gray-500 text-gray-100 focus:outline-none focus:border-orange-500 transition pr-10"
             />
+
+            <span
+              className="absolute inset-y-0 right-3 flex items-center text-gray-400 cursor-pointer hover:text-orange-400 transition"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
           </div>
 
           <button
@@ -68,7 +78,7 @@ const Login = () => {
           <p>
             <Link
               to="/forgot"
-              className="text-gray-400 text-orange-400 text-sm transition"
+              className="text-orange-400 hover:text-orange-300 text-sm transition"
             >
               Forgot password?
             </Link>
