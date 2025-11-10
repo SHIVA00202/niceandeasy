@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -11,7 +12,19 @@ const Register = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // Registration logic here
+    try {
+            const result = await axios.post(`http://localhost:8000/api/user/register`, {
+                name, email, password
+            }, { withCredentials: true })
+           
+            console.log(result)
+            
+
+
+        } catch (error) {
+            console.log(error)
+            
+        }
   };
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // 👁️ icons
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,7 +11,16 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // Add your login logic here
+    try {
+            const result = await axios.post(`http://localhost:8000/api/user/login`, {
+                email, password
+            }, { withCredentials: true })
+            console.log(result)          
+           
+        } catch (error) {
+            console.log(error)            
+        }
+    
   };
 
   return (
@@ -88,5 +98,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
