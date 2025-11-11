@@ -22,18 +22,15 @@ const CoachingStyle = () => {
       className="relative bg-cover bg-center bg-fixed py-16 px-6 text-center"
       style={{ backgroundImage: `url(${gymBackground})` }}
     >
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/60"></div>
-
       {/* Content */}
       <div className="relative max-w-6xl mx-auto">
         {/* Title */}
-        <p className="text-lg md:text-xl font-medium uppercase text-gray-200 mb-2 tracking-wide">
+        <p className="text-lg md:text-xl font-medium uppercase text-gray-200 mb-2 tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
           What We Do
         </p>
 
         {/* Heading */}
-        <h2 className="text-2xl md:text-4xl font-bold text-white mb-10">
+        <h2 className="text-2xl md:text-4xl font-bold text-white mb-10 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
           <span className="text-red-600">#Nice&Easy</span> Coaching Style
         </h2>
 
@@ -42,7 +39,7 @@ const CoachingStyle = () => {
           {coachingData.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center hover:-translate-y-2 transition-all duration-300"
+              className="bg-white/95 rounded-xl shadow-lg p-6 flex flex-col items-center hover:-translate-y-2 transition-all duration-300"
             >
               <img
                 src={item.img}

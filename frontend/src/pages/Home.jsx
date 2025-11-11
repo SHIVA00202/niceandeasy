@@ -11,6 +11,8 @@ import OurService from "../components/OurServices";
 import CoachingStyle from "../components/CoachingStyle";
 import TrainWithUs from "../components/trainwithus";
 import SVideo from "../components/svideo";
+import HeroTestimonials from "../components/Testimonials";
+import SocialMediaStrip from "../components/socialstrip";
 
 const bgImages = [gymBg1, gymBg2, gymBg3, gymBg4];
 
@@ -31,7 +33,7 @@ const Home = () => {
 
       {/* ============ HERO SECTION ============ */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        {/* Background Transition */}
+        {/* Background Transition (no black film) */}
         <div className="absolute inset-0">
           {bgImages.map((img, index) => (
             <div
@@ -40,7 +42,7 @@ const Home = () => {
                 index === currentIndex ? "opacity-100" : "opacity-0"
               }`}
               style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.95)), url(${img})`,
+                backgroundImage: `url(${img})`,
               }}
             />
           ))}
@@ -53,12 +55,20 @@ const Home = () => {
               Tridev Pandey
             </h1>
 
-            <p className="text-[1.1rem] text-gray-300 leading-relaxed">
-              Hi, I'm <span className="text-orange-400 font-semibold">Tridev Pandey</span>, 
-              a <span className="text-white font-semibold">Nutrition & Fitness Coach</span> 
-              specializing in <span className="text-orange-400">Body Transformation</span> 
-              and <span className="text-orange-400">Fat Loss</span>. I help people achieve 
-              real results through smart training, nutrition, and mindset.
+            <p className="text-[1.1rem] text-gray-100 leading-relaxed">
+              Hi, I'm{" "}
+              <span className="text-orange-400 font-semibold">
+                Tridev Pandey
+              </span>
+              , a{" "}
+              <span className="text-white font-semibold">
+                Nutrition & Fitness Coach
+              </span>{" "}
+              specializing in{" "}
+              <span className="text-orange-400">Body Transformation</span> and{" "}
+              <span className="text-orange-400">Fat Loss</span>. I help people
+              achieve real results through smart training, nutrition, and
+              mindset.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -69,7 +79,7 @@ const Home = () => {
                 Explore More
               </button>
               <button
-                onClick={() => alert('Contact form coming soon!')}
+                onClick={() => alert("Contact form coming soon!")}
                 className="border border-orange-500 text-orange-400 hover:bg-orange-600 hover:text-white px-8 py-3 rounded-lg font-medium shadow-[0_0_15px_rgba(255,102,0,0.3)] hover:scale-105 transition-all"
               >
                 Still Confused?
@@ -85,23 +95,21 @@ const Home = () => {
       </section>
 
       {/* ============ RECORD SECTION ============ */}
-     
-        <Record />
-     
+      <Record />
+
       {/* ============ OUR SERVICES ============ */}
-     
-        <OurService />
-     
+      <OurService />
+
       {/* ============ TRAIN WITH US ============ */}
       <section className="h-screen">
         <TrainWithUs />
       </section>
 
       {/* ============ COACHING STYLE ============ */}
-     
-        <CoachingStyle />
-        <SVideo/>
-     
+      <CoachingStyle />
+      <SVideo />
+      <HeroTestimonials />
+      <SocialMediaStrip />
     </div>
   );
 };
