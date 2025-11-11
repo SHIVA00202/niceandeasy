@@ -6,6 +6,8 @@ import gymBg3 from "../assets/377995e55ae59d2d604a33248b4db519.jpg";
 import gymBg4 from "../assets/377995e55ae59d2d604a33248b4db519.jpg";
 import clientImage from "../assets/tridevpandey.png";
 import Header from "../components/Header";
+import Record from "../components/Record";
+import OurService from "../components/OurServices";
 
 const bgImages = [gymBg1, gymBg2, gymBg3, gymBg4];
 
@@ -78,6 +80,9 @@ const Home = () => {
           style={{ backgroundImage: `url(${clientImage})` }}
         />
       </div>
+      <Record/>
+      <OurService/>
+      
     </div>
   );
 };
