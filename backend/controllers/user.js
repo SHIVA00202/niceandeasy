@@ -22,8 +22,8 @@ export const signUp=async(req,res)=>{
         })
         const token=await gentoken(user._id)
         res.cookie("token",token,{
-            secure:true,
-            sameSite:"none",
+            secure:false,
+            sameSite:"strict",
             maxAge:7*24*60*60*1000,
             httpOnly:true
         })
@@ -51,8 +51,8 @@ export const signIn=async(req,res)=>{
         
         const token=await gentoken(user._id)
         res.cookie("token",token,{
-            secure:true,
-            sameSite:"none",
+            secure:false,
+            sameSite:"strict",
             maxAge:7*24*60*60*1000,
             httpOnly:true
         })
@@ -72,6 +72,33 @@ export const signOut=async(req,res)=>{
     }
     catch(error){
         return res.status(500).json(`signout  error ${error}`)
+    }
+}
+
+
+export const googleAuth=async (req,res) => {
+    try {
+        const {name,email}=req.body
+        let user=await User.findOne({email})
+        if(!user){
+            user=await User.create({
+                name,email
+            })
+        }
+
+        const token=await gentoken(user._id)
+        res.cookie("token",token,{
+            secure:false,
+            sameSite:"strict",
+            maxAge:7*24*60*60*1000,
+            httpOnly:true
+        })
+  
+        return res.status(200).json(user)
+
+
+    } catch (error) {
+         return res.status(500).json(`googleAuth error ${error}`)
     }
 }
 
