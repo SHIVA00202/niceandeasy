@@ -13,6 +13,7 @@ import TrainWithUs from "../components/trainwithus";
 import SVideo from "../components/svideo";
 import HeroTestimonials from "../components/Testimonials";
 import SocialMediaStrip from "../components/socialstrip";
+import Footer from "../components/Footer";
 
 const bgImages = [gymBg1, gymBg2, gymBg3, gymBg4];
 
@@ -110,6 +111,7 @@ const Home = () => {
       <SVideo />
       <HeroTestimonials />
       <SocialMediaStrip />
+      <Footer/> 
     </div>
   );
 };
